@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabTech · 周经理 · 高校实验室建设</title>
+    <style>
+        /* ---------- 全局样式 ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f4f7fc;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 20, 40, 0.08);
+            overflow: hidden;
+            padding: 40px 50px;
+        }
+
+        /* ---------- 头部（公司+个人） ---------- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #e9edf4;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            color: #0057a3;
+            letter-spacing: 1px;
+        }
+        .logo span {
+            font-weight: 300;
+            color: #4a6a85;
+            font-size: 16px;
+            margin-left: 12px;
+        }
+
+        .personal-tag {
+            background: #e9f0f9;
+            padding: 8px 22px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #0057a3;
+            border: 1px solid #c5d8ea;
+            font-size: 16px;
+        }
+        .personal-tag small {
+            font-weight: 400;
+            color: #3a5f7a;
+        }
+
+        /* ---------- 主视觉区（左业务 + 右名片） ---------- */
+        .hero {
+            background: linear-gradient(145deg, #eef4fa, #ffffff);
+            padding: 30px 30px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 20px;
+        }
+
+        .hero-text {
+            flex: 2 1 300px;
+        }
+        .hero-text h2 {
+            font-size: 30px;
+            color: #0a1a2b;
+        }
+        .hero-text p {
+            font-size: 17px;
+            color: #3a4f66;
+            margin: 12px 0 18px;
+            max-width: 480px;
+        }
+
+        /* 右侧名片卡（个人联系方式） */
+        .hero-card {
+            flex: 1 1 240px;
+            background: white;
+            border-radius: 20px;
+            padding: 22px 25px;
+            box-shadow: 0 8px 24px rgba(0, 40, 80, 0.06);
+            border: 1px solid #dce5ef;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .hero-card .avatar {
+            font-size: 44px;
+            line-height: 1;
+        }
+        .hero-card .name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0a1a2b;
+            margin: 4px 0 2px;
+        }
+        .hero-card .role {
+            color: #0057a3;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+        .hero-card .contact-line {
+            font-size: 15px;
+            color: #1e2a3a;
+            margin: 4px 0;
+        }
+        .hero-card .contact-line a {
+            color: #0057a3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .hero-card .contact-line a:hover {
+            text-decoration: underline;
+        }
+        .hero-card .badge-group {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .hero-card .badge {
+            background: #eef4fa;
+            padding: 3px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            color: #003d66;
+            border: 1px solid #d0dfee;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #0057a3;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 87, 163, 0.3);
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background: #003d73;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0, 87, 163, 0.4);
+        }
+
+        /* ---------- 服务卡片区 ---------- */
+        .section-title {
+            font-size: 24px;
+            margin: 20px 0 25px;
+            color: #0a1a2b;
+            border-left: 6px solid #0057a3;
+            padding-left: 18px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: #f9fbfd;
+            border-radius: 18px;
+            padding: 22px 18px;
+            transition: 0.25s ease;
+            border: 1px solid #e6ecf3;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: #0057a3;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+        }
+        .card h3 {
+            font-size: 19px;
+            margin-bottom: 6px;
+            color: #003d66;
+        }
+        .card p {
+            color: #4f637b;
+            font-size: 14px;
+        }
+        .card .tag {
+            display: inline-block;
+            background: #e1eaf3;
+            color: #0057a3;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 30px;
+            margin-top: 12px;
+        }
+
+        /* 个人专长卡片（突出转行优势） */
+        .card.special {
+            background: #e9f2fa;
+            border-color: #b2cfe5;
+        }
+
+        /* ---------- 交互区域 ---------- */
+        .interact-box {
+            background: #e9f0f9;
+            border-radius: 18px;
+            padding: 25px 30px;
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .interact-box p {
+            font-size: 17px;
+            font-weight: 500;
+        }
+        #messageDisplay {
+            background: white;
+            padding: 10px 25px;
+            border-radius: 40px;
+            border: 1px solid #bccfdf;
+            min-width: 150px;
+            text-align: center;
+            color: #1e2a3a;
+            transition: 0.2s;
+        }
+
+        /* ---------- 页脚 ---------- */
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #7a8b9f;
+            border-top: 1px solid #e6ecf3;
+            padding-top: 25px;
+            font-size: 14px;
+        }
+        .footer strong {
+            color: #0057a3;
+        }
+
+        /* ---------- 手机适配 ---------- */
+        @media (max-width: 700px) {
+            .container { padding: 20px; }
+            .header { flex-direction: column; align-items: start; }
+            .personal-tag { margin-top: 12px; }
+            .hero { flex-direction: column; }
+            .hero-card { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ========== 头部：公司 + 个人角色 ========== -->
+    <div class="header">
+        <div class="logo">
+            <h1>🔬 LabTech <span>实验室建设总承包专家</span></h1>
+        </div>
+        <div class="personal-tag">
+             周经理 · <small>销售工程师</small>
+        </div>
+    </div>
+
+    <!-- ========== 主视觉区：左业务 + 右名片 ========== -->
+    <div class="hero">
+        <div class="hero-text">
+            <h2>让实验室建设更专业、更省心</h2>
+            <p>从设计、设备选型到施工验收、售后运维，我们提供一站式实验室EPC建设服务。</p>
+            <button class="btn" id="welcomeBtn">👋 获取专属方案</button>
+        </div>
+
+        <!-- 个人名片卡（右侧） -->
+        <div class="hero-card">
+            <div class="avatar">👔</div>
+            <div class="name">周经理</div>
+            <div class="role">实验室建设 · 销售工程师</div>
+            <div class="contact-line">📞 <a href="tel:+8613220553376">132-2055-3376</a></div>
+            <div class="contact-line">✉️ <a href="mailto:zhang@labtech.com">13220553376@163.com</a></div>
+            <div class="badge-group">
+                <span class="badge">设计转销售</span>
+                <span class="badge">熟悉国标</span>
+                <span class="badge">现场勘测</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== 核心服务（4张卡片，含个人专长） ========== -->
+    <h2 class="section-title">我们的核心服务</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3>📐 规划设计</h3>
+            <p>根据国家标准和实验流程，工艺先行，精准设计暖通、水电、气路与实验室智能化系统。</p>
+            <span class="tag">精通国标</span>
+        </div>
+        <div class="card">
+            <h3>🌡️ 环境控制</h3>
+            <p>温湿度精准控制，包含转轮除湿、新风系统等专业设备选型。</p>
+            <span class="tag">节能方案</span>
+        </div>
+        <div class="card">
+            <h3>🧪 家具与安全</h3>
+            <p>提供耐腐蚀实验台、风幕式节能型通风柜及紧急冲淋等安全防护设备。</p>
+            <span class="tag">EPC 总包</span>
+        </div>
+        <!-- 第四张卡片突出您的个人背景 -->
+        <div class="card special">
+            <h3>💡 设计·销售双视角</h3>
+            <p>出身设计，更懂落地。能快速理解您的需求，提供最优性价比方案。</p>
+            <span class="tag">转行优势</span>
+        </div>
+    </div>
+
+    <!-- ========== 交互区域（点击按钮演示） ========== -->
+    <div class="interact-box">
+        <p>📬 点击上方按钮，立即触发专属回复：</p>
+        <div id="messageDisplay">等待您的操作...</div>
+    </div>
+
+    <!-- ========== 页脚 ========== -->
+    <div class="footer">
+        © 2026 <strong>LabTech</strong> · 周经理 · 致力于中国高校实验室建设 &nbsp;|&nbsp; 免费提供初步方案
+    </div>
+
+</div>
+
+<!-- ========== JavaScript 交互 ========== -->
+<script>
+    // 获取按钮和消息显示元素
+    const button = document.getElementById('welcomeBtn');
+    const displayDiv = document.getElementById('messageDisplay');
+
+    // 点击按钮时显示您的个人联系回复
+    button.addEventListener('click', function() {
+        displayDiv.textContent = '📲 感谢关注！周经理 132-2055-3376 马上与您对接！';
+        displayDiv.style.backgroundColor = '#d4e2f7';
+        displayDiv.style.borderColor = '#0057a3';
+        displayDiv.style.color = '#003d66';
+    });
+
+    // 点击卡片也可以显示对应服务（保留原来的彩蛋）
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card) => {
+        card.addEventListener('click', function() {
+            const title = this.querySelector('h3').innerText;
+            displayDiv.textContent = `✅ 您选择了「${title}」，周经理可提供详细技术参数与案例。`;
+            displayDiv.style.backgroundColor = '#ffffff';
+            displayDiv.style.borderColor = '#bccfdf';
+        });
+    });
+
+    console.log('合并页面加载成功！实验室业务 + 个人名片已整合。');
+</script>
+
+</body>
+</html>
